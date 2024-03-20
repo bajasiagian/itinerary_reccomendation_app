@@ -16,7 +16,7 @@ def get_route_prompt(location, days, itinerary_list):
             "afternoon":[location],"description_afternoon":explain afternoon activities,
             "evening":[location],"description_evening":explain evening activities,))
             
-            this is my itinerary list:
+            this is my itinerary list, you can add other location if needed:
             {itinerary_list}
             """
     return prompt
