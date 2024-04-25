@@ -38,7 +38,7 @@ def get_route_reccomendation(location, days):
 
 def get_chatgpt_ans(prompt):
     client = OpenAI(organization=st.secrets['ORG'],
-                    project=st.secrerts['proj'])
+                    project=st.secrets['proj'])
 
     stream = client.chat.completions.create(
         model = "gpt-3.5-turbo",
