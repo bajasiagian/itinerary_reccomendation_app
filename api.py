@@ -36,8 +36,8 @@ def get_route_reccomendation(location, days):
         """
     return prompt
 
-def get_chatgpt_ans(prompt):
-    client = OpenAI(api_key=st.secrets['OPEN_AI_API_KEY'])
+def get_chatgpt_ans(prompt,api_key):
+    client = OpenAI(api_key=api_key)
 
     stream = client.chat.completions.create(
         model = "gpt-3.5-turbo",
