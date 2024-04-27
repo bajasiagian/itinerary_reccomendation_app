@@ -22,7 +22,7 @@ with st.container(height=700):
     day_stay = st.number_input('How many days you will stay?',step=1,min_value=1,placeholder='Day Stay')
 
     recc = st.selectbox('Do you have some list?',
-                        ["Yes","No, please reccomend me"],
+                        ["Yes","No, please recommend me"],
                         index=None,
                         placeholder='')
     prompt =''
@@ -30,8 +30,8 @@ with st.container(height=700):
         text = st.text_area("Put your list here",placeholder="- Place 1\n- Place 2\n...")
         prompt = get_route_prompt(location, day_stay, text)
     
-    elif recc == "No, please reccomend me":
-        st.write("Okay we'll give you reccomendation")
+    elif recc == "No, please recommend me":
+        st.write("Okay we'll give you recommendation")
         prompt = get_route_reccomendation(location,day_stay)
 
     user_key_prompt = "Enter your OpenAI API key to get started. Keep it safe, as it'll be your key to coming back. \n\n**Friendly reminder:** GPT Lab works best with pay-as-you-go API keys. Free trial API keys are limited to 3 requests a minute. For more information on OpenAI API rate limits, check [this link](https://platform.openai.com/docs/guides/rate-limits/overview).\n\n- Don't have an API key? No worries! Create one [here](https://platform.openai.com/account/api-keys).\n- Want to upgrade your free-trial API key? Just enter your billing information [here](https://platform.openai.com/account/billing/overview)."
