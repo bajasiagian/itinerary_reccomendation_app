@@ -12,7 +12,7 @@ from htbuilder.units import px as pix
 
 st.title("Welcome to itinerary recommender")
 
-with st.container(height=500):
+with st.container(height=450):
     location = st.text_input("Where are you going to?",disabled=False,
                         placeholder="Insert country or location"
                         )
@@ -25,13 +25,6 @@ with st.container(height=500):
                         ["Yes","No, please reccomend me"],
                         index=None,
                         placeholder='')
-    
-    user_key_prompt = "Enter your OpenAI API key to get started. Keep it safe, as it'll be your key to coming back. \n\n**Friendly reminder:** GPT Lab works best with pay-as-you-go API keys. Free trial API keys are limited to 3 requests a minute. For more information on OpenAI API rate limits, check [this link](https://platform.openai.com/docs/guides/rate-limits/overview).\n\n- Don't have an API key? No worries! Create one [here](https://platform.openai.com/account/api-keys).\n- Want to upgrade your free-trial API key? Just enter your billing information [here](https://platform.openai.com/account/billing/overview)."
-    placeholder = "Paste your OpenAI API key here (sk-...)"
-    
-    st.write(user_key_prompt)
-    api_key_placeholder = st.text_input("Enter your OpenAI API Key", key="user_key_input", type="password", autocomplete="current-password", placeholder=placeholder)
-    
     prompt =''
     if recc == "Yes":
         text = st.text_area("Put your list here",placeholder="- Place 1\n- Place 2\n...")
@@ -41,6 +34,11 @@ with st.container(height=500):
         st.write("Okay we'll give you reccomendation")
         prompt = get_route_reccomendation(location,day_stay)
 
+    user_key_prompt = "Enter your OpenAI API key to get started. Keep it safe, as it'll be your key to coming back. \n\n**Friendly reminder:** GPT Lab works best with pay-as-you-go API keys. Free trial API keys are limited to 3 requests a minute. For more information on OpenAI API rate limits, check [this link](https://platform.openai.com/docs/guides/rate-limits/overview).\n\n- Don't have an API key? No worries! Create one [here](https://platform.openai.com/account/api-keys).\n- Want to upgrade your free-trial API key? Just enter your billing information [here](https://platform.openai.com/account/billing/overview)."
+    placeholder = "Paste your OpenAI API key here (sk-...)"
+    
+    st.info(user_key_prompt)
+    api_key_placeholder = st.text_input("Enter your OpenAI API Key", key="user_key_input", type="password", autocomplete="current-password", placeholder=placeholder)
     okay = st.button("Start")
 
 if okay and api_key_placeholder != "":
