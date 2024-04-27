@@ -12,7 +12,7 @@ from htbuilder.units import px as pix
 
 st.title("Welcome to itinerary recommender")
 
-with st.container(height=450):
+with st.container(height=600):
     location = st.text_input("Where are you going to?",disabled=False,
                         placeholder="Insert country or location"
                         )
