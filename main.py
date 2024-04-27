@@ -138,7 +138,7 @@ if okay and api_key_placeholder != "":
                 link2.link_button("Afternoon Route", day_class.get_route("afternoon"),use_container_width=True)
                 link3.link_button("Evening Route", day_class.get_route("evening"),use_container_width=True)
 
-else:
+elif okay and api_key_placeholder == "":
     st.header("You need your own API key to run thiss application, since my key already expired 🥲")
 ###------------------------Footer------------------------###
 #Footer
