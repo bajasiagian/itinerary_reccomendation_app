@@ -33,16 +33,16 @@ with st.container(height=450):
     elif recc == "No, please reccomend me":
         st.write("Okay we'll give you reccomendation")
         prompt = get_route_reccomendation(location,day_stay)
-    
-    user_key_prompt = "Enter your OpenAI API key to get started. Keep it safe, as it'll be your key to coming back. \n\n**Friendly reminder:** GPT Lab works best with pay-as-you-go API keys. Free trial API keys are limited to 3 requests a minute. For more information on OpenAI API rate limits, check [this link](https://platform.openai.com/docs/guides/rate-limits/overview).\n\n- Don't have an API key? No worries! Create one [here](https://platform.openai.com/account/api-keys).\n- Want to upgrade your free-trial API key? Just enter your billing information [here](https://platform.openai.com/account/billing/overview)."
-    placeholder = "Paste your OpenAI API key here (sk-...)"
-    
-    with st.container():
-        st.markdown("\n")
-        st.info(user_key_prompt)
-        api_key_placeholder = st.text_input("Enter your OpenAI API Key", key="user_key_input", type="password", autocomplete="current-password", placeholder=placeholder)
 
-    okay = st.button("Start")
+user_key_prompt = "Enter your OpenAI API key to get started. Keep it safe, as it'll be your key to coming back. \n\n**Friendly reminder:** GPT Lab works best with pay-as-you-go API keys. Free trial API keys are limited to 3 requests a minute. For more information on OpenAI API rate limits, check [this link](https://platform.openai.com/docs/guides/rate-limits/overview).\n\n- Don't have an API key? No worries! Create one [here](https://platform.openai.com/account/api-keys).\n- Want to upgrade your free-trial API key? Just enter your billing information [here](https://platform.openai.com/account/billing/overview)."
+placeholder = "Paste your OpenAI API key here (sk-...)"
+    
+with st.container():
+    st.markdown("\n")
+    st.info(user_key_prompt)
+    api_key_placeholder = st.text_input("Enter your OpenAI API Key", key="user_key_input", type="password", autocomplete="current-password", placeholder=placeholder)
+okay = st.button("Start")
+
 if okay and api_key_placeholder != "":
     with st.spinner('Please relax while we plan your vacation ⏱️...'):
         answer = get_chatgpt_ans(prompt=prompt, api_key=api_key_placeholder)
